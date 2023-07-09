@@ -1,7 +1,11 @@
+<u>To-do List</u>
+
 composer install
 
 if MAC user:
+
 valet link
+
 valet use 7.4
 
 else:
