@@ -5,7 +5,7 @@ namespace App\Repositories;
 use App\Repositories\BaseRepository;
 use App\Todo;
 
-class AgentReportRepository extends BaseRepository
+class TodoRepository extends BaseRepository
 {
      /**
      * @var array

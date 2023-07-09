@@ -9,7 +9,7 @@ class Todo extends BaseModel
 {
     use SoftDeletes;
 
-    protected $table = "todo";
+    protected $table = "task";
 
     protected $fillable = [
         'id', 'name', 'status', 'created_at', 'updated_at', 'deleted_at'
