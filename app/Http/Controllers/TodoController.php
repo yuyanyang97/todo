@@ -19,7 +19,9 @@ class TodoController extends Controller
     }
 
     public function check($id){
+        $model = $this->_todoRepository->find($id);
 
+        return view("detail")->with('record', $model);
     }
 
     public function add(Request $request){
@@ -27,7 +29,12 @@ class TodoController extends Controller
     }
 
     public function update(Request $request, $id){
+        $model= $this->_todoRepository->find($id);
 
+        $model->name = $request->name;
+        $model->save();
+
+        return redirect()->route('index');
     }
 
     public function delete($id){

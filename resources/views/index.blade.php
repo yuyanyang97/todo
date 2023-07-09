@@ -125,7 +125,7 @@
                         <td>{{ $record->created_at }}</td>
                         <td>
                             <div class='text-center'>
-                                <a href="{{route('check_task', ['id'=>$record->id])}}" class='btn btn-info' style='margin-right: 3px;'>Check</a>
+                                <a href="{{route('task_detail', ['id'=>$record->id])}}" class='btn btn-info' style='margin-right: 3px;'>Check</a>
                                 <a href="{{route('delete_task', ['id'=>$record->id])}}" class='btn btn-info' style='margin-right: 3px;'>Delete</a>
                             </div>
                         </td>
