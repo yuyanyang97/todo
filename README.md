@@ -1,6 +1,12 @@
 <u>To-do List</u>
 
+modify.env.example to .env
+
+change DB_DATABASE to database that you named
+
 composer install
+
+php artisan key:generate
 
 if MAC user:
 
