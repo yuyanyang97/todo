@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'TodoController@index')->name('index');
+Route::get('check/{id}', 'TodoController@check')->name('check_task');
+Route::post('add', 'TodoController@store')->name('add_task');
+Route::put('edit/{id}', 'TodoController@update')->name('update_task');
+Route::delete('delete/{id}', 'TodoController@delete')->name('delete_task');
