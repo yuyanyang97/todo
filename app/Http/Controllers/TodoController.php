@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use App\Repositories\TodoRepository;
 use Carbon\Carbon;
 use App\Task;
@@ -15,8 +16,15 @@ class TodoController extends Controller
         $this->_todoRepository = $todoRepository;
     }
     public function index(){
-        $model = $this->_todoRepository->all();
+        $value = Session::get('key');
 
+        if(!$value){
+            $randomNumber = mt_rand(1000, 9999);
+            Session::put('key', $randomNumber);
+        }
+        
+        $model = $this->_todoRepository->makeModel()->where('session_key', $value)->get();
+        
         return view("index")->with('data', $model);
     }
 
@@ -33,11 +41,13 @@ class TodoController extends Controller
     public function store(Request $request){
 
         $now = Carbon::now()->timezone('Asia/Kuala_Lumpur');
+        $value = session('key');
 
         $task = new Task();
         $task->name = $request->name;
         $task->status = 0;
         $task->created_at = $now;
+        $task->session_key = $value;
         $task->save();
 
         return redirect()->route('index');
