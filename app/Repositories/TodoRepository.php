@@ -3,7 +3,7 @@
 namespace App\Repositories;
 
 use App\Repositories\BaseRepository;
-use App\Todo;
+use App\Task;
 
 class TodoRepository extends BaseRepository
 {
@@ -28,6 +28,6 @@ class TodoRepository extends BaseRepository
      **/
     public function model()
     {
-        return Todo::class;
+        return Task::class;
     }
 }

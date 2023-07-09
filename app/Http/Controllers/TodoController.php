@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\TodoRepository;
+use Carbon\Carbon;
+use App\Task;
 use DataTables;
 
 class TodoController extends Controller
@@ -24,8 +26,21 @@ class TodoController extends Controller
         return view("detail")->with('record', $model);
     }
 
-    public function add(Request $request){
+    public function create(){
+        return view("add");
+    }
 
+    public function store(Request $request){
+
+        $now = Carbon::now()->timezone('Asia/Kuala_Lumpur');
+
+        $task = new Task();
+        $task->name = $request->name;
+        $task->status = 0;
+        $task->created_at = $now;
+        $task->save();
+
+        return redirect()->route('index');
     }
 
     public function update(Request $request, $id){

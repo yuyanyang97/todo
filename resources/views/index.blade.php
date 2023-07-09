@@ -71,12 +71,10 @@
             tr{
                 width: 30%;
             }
-            .status-1 {
-                background-color: #90EE90;
-            }
-
-            .status-0 {
-                background-color: red;
+            
+            .add-btn{
+                margin-left: 30px;
+                margin-top: 20px;
             }
         </style>
     </head>
@@ -134,5 +132,6 @@
                 @endforeach
             </tbody>
         </table>
+        <a href="{{route('add_task')}}" class='btn btn-info add-btn' style='margin-right: 3px;'>Add Task</a>
     </body>
 </html>
