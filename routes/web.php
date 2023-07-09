@@ -18,6 +18,6 @@ Route::get('check/{id}', 'TodoController@check')->name('task_detail');
 Route::get('add', 'TodoController@create')->name('add_task');
 Route::post('store', 'TodoController@store')->name('store_task');
 Route::post('edit/{id}', 'TodoController@update')->name('update_task');
-Route::delete('delete/{id}', 'TodoController@delete')->name('delete_task');
-Route::post('update_status/{id}', 'TodoController@update_status')->name('update_status');
+Route::get('delete/{id}', 'TodoController@delete')->name('delete_task');
+Route::get('update_status/{id}', 'TodoController@update_status')->name('update_status');
 

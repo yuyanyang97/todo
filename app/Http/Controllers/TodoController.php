@@ -53,10 +53,16 @@ class TodoController extends Controller
     }
 
     public function delete($id){
-
+        $model= $this->_todoRepository->delete($id);
+        return redirect()->route('index');
     }
 
     public function update_status(Request $request, $id){
+        $model= $this->_todoRepository->find($id);
 
+        $model->status = !$model->status;
+        $model->save();
+
+        return redirect()->route('index');
     }
 }

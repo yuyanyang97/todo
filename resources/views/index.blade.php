@@ -103,6 +103,7 @@
                     <tr class="table-{{ $status }}">
                         <td>
                             <div class='text-center'>
+                                
                                 <a href="{{route('update_status', ['id'=>$record->id])}}" class='btn btn-info' style='margin-right: 3px;'>
                                 @if($record->status == 1)
                                     Revert
